@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative CV Template</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background: linear-gradient(135deg, #f9f9f9 25%, #fff 25%, #fff 50%, #f9f9f9 50%, #f9f9f9 75%, #fff 75%, #fff 100%);
+            background-size: 28.28px 28.28px;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            background: #fff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .header {
+            background: linear-gradient(to right, #00c6ff, #0072ff);
+            color: #fff;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+        }
+        .header img {
+            border-radius: 50%;
+            border: 4px solid #fff;
+            max-width: 120px;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            font-size: 36px;
+            margin: 10px 0;
+        }
+        .header p {
+            font-size: 18px;
+        }
+        .main-content {
+            padding: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .section {
+            width: 45%;
+            margin-bottom: 20px;
+        }
+        .section-header {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #0072ff;
+            position: relative;
+        }
+        .section-header::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 50px;
+            height: 4px;
+            background: #00c6ff;
+        }
+        .section-content {
+            background: #f1f1f1;
+            padding: 15px;
+            border-radius: 10px;
+        }
+        .contact-info {
+            list-style: none;
+            padding: 0;
+        }
+        .contact-info li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .contact-info i {
+            margin-right: 10px;
+            color: #0072ff;
+        }
+        .skills ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .skills ul li {
+            background: #0072ff;
+            color: #fff;
+            padding: 5px 10px;
+            margin: 5px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+        .section-content p, .section-content ul {
+            margin: 0;
+        }
+        .section-content ul {
+            padding-left: 20px;
+        }
+        .section-content ul li {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        {% if profile_pic_url %}
+            <img src="{{ profile_pic_url }}" alt="Profile Image">
+        {% endif %}
+        <h1>{{ cv_resume.personal_info.full_name }}</h1>
+        <p>{{ cv_resume.personal_info.profession }}</p>
+    </div>
+    <div class="main-content">
+        <div class="section">
+            <div class="section-header">Contact Information</div>
+            <div class="section-content">
+                <ul class="contact-info">
+                    <li><i class="fas fa-phone-alt"></i>{{ cv_resume.personal_info.phone_number }}</li>
+                    <li><i class="fas fa-envelope"></i>{{ cv_resume.personal_info.email }}</li>
+                    <li><i class="fas fa-map-marker-alt"></i>{{ cv_resume.personal_info.address }}</li>
+                    <li><i class="fas fa-birthday-cake"></i>{{ cv_resume.personal_info.date_of_birth }}</li>
+                    <li><i class="fas fa-flag"></i>{{ cv_resume.personal_info.nationality }}</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">About Me</div>
+            <div class="section-content">
+                <p>{{ cv_resume.personal_info.about_me }}</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">Education</div>
+            <div class="section-content">
+                <p><strong>Degree:</strong> {{ cv_resume.education.name }}</p>
+                <p><strong>Field of Study:</strong> {{ cv_resume.education.field_of_study }}</p>
+                <p><strong>Institute:</strong> {{ cv_resume.education.institute }}</p>
+                <p><strong>Location:</strong> {{ cv_resume.education.location }}</p>
+                <p><strong>Graduation Year:</strong> {{ cv_resume.education.graduation_year }}</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">Work Experience</div>
+            <div class="section-content">
+                <p><strong>Company:</strong> {{ cv_resume.work_experience.company }}</p>
+                <p><strong>Position:</strong> {{ cv_resume.work_experience.position }}</p>
+                <p><strong>Start Date:</strong> {{ cv_resume.work_experience.start_date }}</p>
+                <p><strong>End Date:</strong> {{ cv_resume.work_experience.end_date }}</p>
+                <p><strong>Responsibilities:</strong> {{ cv_resume.work_experience.responsibilities }}</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">Certifications</div>
+            <div class="section-content">
+                <p><strong>Name:</strong> {{ cv_resume.certification.name }}</p>
+                <p><strong>Issuer Name:</strong> {{ cv_resume.certification.issuer_name }}</p>
+                <p><strong>Certification Date:</strong> {{ cv_resume.certification.date }}</p>
+            </div>
+        </div>
+
+        <div class="section skills">
+            <div class="section-header">Skills</div>
+            <div class="section-content">
+                <ul>
+                    {% for skill in cv_resume.skills.all %}
+                        <li>{{ skill.name }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">Additional Information</div>
+            <div class="section-content">
+                {{ cv_resume.body|safe }}
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>

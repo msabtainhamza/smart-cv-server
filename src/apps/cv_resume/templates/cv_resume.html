@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}
+Create CV Resume
+{% endblock title %}
+
+{% block content %}
+<body>
+    <div>
+        <form method="post">
+            {% csrf_token %}
+            {{ form }}
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</body>
+{% endblock content %}

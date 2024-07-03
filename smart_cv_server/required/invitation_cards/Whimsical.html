@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whimsical Invitation Card</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <style>
+<!--                {{ bootstrap_css }}-->
+
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #FFFAF0;
+            padding: 20px;
+            margin: 0;
+        }
+        .container {
+            max-width: 700px;
+            background: #FFFFFF;
+            padding: 40px;
+            margin: 20px auto;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            text-align: center;
+            border: 2px dashed #FFA07A;
+        }
+        h1, h2 {
+            color: #FF69B4;
+            margin-bottom: 20px;
+        }
+        h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        h2 {
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+        .content-section {
+            margin-bottom: 30px;
+        }
+        .content-section p {
+            font-size: 18px;
+            margin: 10px 0;
+            color: #333;
+        }
+        .details {
+            padding: 20px;
+            border: 1px dashed #FFA07A;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            background-color: #FFF5EE;
+        }
+        .details p {
+            margin: 5px 0;
+        }
+        .message {
+            font-size: 18px;
+            font-style: italic;
+            color: #FF69B4;
+            margin-bottom: 30px;
+            padding: 0 20px;
+        }
+        .signature {
+            margin-top: 40px;
+        }
+        .signature p {
+            font-size: 20px;
+            margin: 0;
+            color: #FF69B4;
+        }
+        .signature .name {
+            font-weight: bold;
+            color: #FF4500;
+        }
+        .decorative-line {
+            width: 60%;
+            height: 3px;
+            background-color: #FF69B4;
+            margin: 30px auto;
+        }
+        .button-download {
+            display: inline-block;
+            background-color: #FF69B4;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            text-align: center;
+            border: none;
+            border-radius: 10px;
+            text-decoration: none;
+        }
+        .button-download:hover {
+            background-color: #FF1493;
+        }
+        .fun-elements {
+            font-size: 30px;
+            color: #FF69B4;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1 class="fun-elements">🎉 You're Invited! 🎉</h1>
+    <h2>Join Us for a Magical Celebration</h2>
+
+    <div class="decorative-line"></div>
+
+    <div class="content-section">
+        <div class="details">
+            <p><strong>Date:</strong> {{ invitation.event.event_date }}</p>
+            <p><strong>Time:</strong> {{ invitation.event.event_time }}</p>
+            <p><strong>Location:</strong> {{ invitation.event.event_location }}</p>
+        </div>
+    </div>
+
+    <div class="content-section">
+        <div class="details">
+            <p><strong>Host:</strong> {{ invitation.host.hostname }}</p>
+            <p><strong>Email:</strong> {{ invitation.host.host_email }}</p>
+            <p><strong>Phone:</strong> {{ invitation.host.host_phone_number }}</p>
+        </div>
+    </div>
+
+    <div class="message">
+        "{{ invitation.message.message }}"
+    </div>
+
+    <div class="content-section">
+        <p>{{ invitation.body }}</p>
+    </div>
+
+    <div class="signature">
+        <p class="name">{{ invitation.host.hostname }}</p>
+        <p>Can't wait to see you there!</p>
+    </div>
+
+    <div class="decorative-line"></div>
+
+</div>
+
+</body>
+</html>

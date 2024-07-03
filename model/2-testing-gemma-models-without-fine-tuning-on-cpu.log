@@ -1,0 +1,50 @@
+[{"stream_name":"stdout","time":282.426218417,"data":".\n"}
+,{"stream_name":"stdout","time":282.426371739,"data":"\n"}
+,{"stream_name":"stdout","time":284.547050669,"data":"**Concepts:**\n"}
+,{"stream_name":"stdout","time":284.547086661,"data":"\n"}
+,{"stream_name":"stdout","time":294.106419441,"data":"* **Data exploration:** Understanding the distribution, patterns, and relationships within the data.\n"}
+,{"stream_name":"stdout","time":303.107235431,"data":"* **Feature engineering:** Creating new features from existing ones to improve model performance.\n"}
+,{"stream_name":"stdout","time":311.264761433,"data":"* **Model selection:** Choosing the best model for a given task.\n"}
+,{"stream_name":"stdout","time":320.215338522,"data":"* **Evaluation metrics:** Measuring the performance of a model on a given dataset.\n"}
+,{"stream_name":"stdout","time":320.215366705,"data":"\n"}
+,{"stream_name":"stdout","time":324.025050136,"data":"**Solution write-up:**\n"}
+,{"stream_name":"stdout","time":324.025128737,"data":"\n"}
+,{"stream_name":"stdout","time":327.711867115,"data":"**1. Data Exploration:**\n"}
+,{"stream_name":"stdout","time":327.712820153,"data":"\n"}
+,{"stream_name":"stdout","time":336.804142377,"data":"* Visualized the distribution of finger positions across different fingers and across different gestures.\n"}
+,{"stream_name":"stdout","time":343.567631708,"data":"* Identified outliers with unusual finger configurations or isolated gestures.\n"}
+,{"stream_name":"stdout","time":352.013457716,"data":"* Used dimensionality reduction techniques to reduce the feature space while preserving important information.\n"}
+,{"stream_name":"stdout","time":352.013542174,"data":"\n"}
+,{"stream_name":"stdout","time":355.669978736,"data":"**2. Feature Engineering:**\n"}
+,{"stream_name":"stdout","time":355.670003731,"data":"\n"}
+,{"stream_name":"stdout","time":364.163819466,"data":"* Created new features based on finger position, velocity, and timing information.\n"}
+,{"stream_name":"stdout","time":374.133686039,"data":"* Explored using time-based features like gesture duration and inter-gesture intervals.\n"}
+,{"stream_name":"stdout","time":381.697055105,"data":"* Added features related to finger isolation and proximity to other fingers.\n"}
+,{"stream_name":"stdout","time":381.697113118,"data":"\n"}
+,{"stream_name":"stdout","time":385.447127616,"data":"**3. Model Selection:**\n"}
+,{"stream_name":"stdout","time":385.44783477,"data":"\n"}
+,{"stream_name":"stdout","time":397.647072098,"data":"* Evaluated various machine learning models including Support Vector Machines (SVMs), Random Forests, and Neural Networks.\n"}
+,{"stream_name":"stdout","time":407.412611738,"data":"* Used cross-validation techniques to ensure the robustness of the model's performance.\n"}
+,{"stream_name":"stdout","time":414.836102006,"data":"* Implemented ensemble methods like stacking SVMs to improve overall accuracy.\n"}
+,{"stream_name":"stdout","time":414.836183058,"data":"\n"}
+,{"stream_name":"stdout","time":418.535854146,"data":"**4. Evaluation Metrics:**\n"}
+,{"stream_name":"stdout","time":418.535887818,"data":"\n"}
+,{"stream_name":"stdout","time":430.697776623,"data":"* Defined metrics for evaluating finger spelling recognition models, including accuracy, precision, recall, and F1 score.\n"}
+,{"stream_name":"stdout","time":440.959636629,"data":"* Evaluated the models on a held-out test set to assess theirgeneralizability.\n"}
+,{"stream_name":"stdout","time":449.949724225,"data":"* Used metrics like average recognition rate and minimum error rate to compare different models.\n"}
+,{"stream_name":"stdout","time":449.949806948,"data":"\n"}
+,{"stream_name":"stdout","time":452.606828765,"data":"**Additional Insights:**\n"}
+,{"stream_name":"stdout","time":452.606904371,"data":"\n"}
+,{"stream_name":"stdout","time":463.15220759,"data":"* The solution benefited from leveraging pre-trained models and fine-tuning them with additional data.\n"}
+,{"stream_name":"stderr","time":477.900144327,"data":"/opt/conda/lib/python3.10/site-packages/traitlets/traitlets.py:2930: FutureWarning: --Exporter.preprocessors=[\"remove_papermill_header.RemovePapermillHeader\"] for containers is deprecated in traitlets 5.0. You can pass `--Exporter.preprocessors item` ... multiple times to add items to a list.\n"}
+,{"stream_name":"stderr","time":477.900205879,"data":"  warn(\n"}
+,{"stream_name":"stderr","time":477.90974611,"data":"[NbConvertApp] WARNING | Config option `kernel_spec_manager_class` not recognized by `NbConvertApp`.\n"}
+,{"stream_name":"stderr","time":477.944229792,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":478.538618689,"data":"[NbConvertApp] Writing 12702 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":480.590708501,"data":"/opt/conda/lib/python3.10/site-packages/traitlets/traitlets.py:2930: FutureWarning: --Exporter.preprocessors=[\"nbconvert.preprocessors.ExtractOutputPreprocessor\"] for containers is deprecated in traitlets 5.0. You can pass `--Exporter.preprocessors item` ... multiple times to add items to a list.\n"}
+,{"stream_name":"stderr","time":480.590753639,"data":"  warn(\n"}
+,{"stream_name":"stderr","time":480.594459935,"data":"[NbConvertApp] WARNING | Config option `kernel_spec_manager_class` not recognized by `NbConvertApp`.\n"}
+,{"stream_name":"stderr","time":480.658718287,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":482.020966706,"data":"[NbConvertApp] Writing 284479 bytes to __results__.html\n"}
+,{"stream_name":"stdout","time":482.28910342,"data":"* Collaboration and knowledge sharing among team members played a crucial role in developing effective solutions."}
+]

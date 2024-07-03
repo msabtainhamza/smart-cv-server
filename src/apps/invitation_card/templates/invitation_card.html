@@ -1,0 +1,24 @@
+<!-- invitation_card.html -->
+{% extends 'base.html' %}
+{% block title %}
+    Invitation Detail Form
+{% endblock title %}
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    <h1>
+        Host Detail
+    </h1>
+    {{ form.host_detail_form }}
+
+    <h1>
+        Event Detail
+    </h1>
+    {{ form.event_detail_form }}
+    <h1>
+        Message Detail
+    </h1>
+    {{ form.message_detail_form }}
+    <button type="submit">Submit</button>
+</form>
+{% endblock content %}

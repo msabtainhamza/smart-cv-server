@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Template</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background: #fff;
+            padding: 20px;
+            margin-top: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #4CAF50;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section-header {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 5px;
+        }
+        .section-content p {
+            margin: 5px 0;
+        }
+        .section-content ul {
+            padding-left: 20px;
+        }
+        .section-content ul li {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Curriculum Vitae</h1>
+
+    <div class="section">
+        <div class="section-header">Personal Information</div>
+        <div class="section-content">
+            {% if cv_resume.personal_info.profile_pic %}
+                <img src="{{ cv_resume.personal_info.profile_pic.url }}" alt="Profile Image" class="img-thumbnail mb-3" style="max-width: 150px;">
+            {% endif %}
+            <p><strong>Full Name:</strong> {{ cv_resume.personal_info.full_name }}</p>
+            <p><strong>Email:</strong> {{ cv_resume.personal_info.email }}</p>
+            <p><strong>Phone Number:</strong> {{ cv_resume.personal_info.phone_number }}</p>
+            <p><strong>Address:</strong> {{ cv_resume.personal_info.address }}</p>
+            <p><strong>Date of Birth:</strong> {{ cv_resume.personal_info.date_of_birth }}</p>
+            <p><strong>Nationality:</strong> {{ cv_resume.personal_info.nationality }}</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-header">Education</div>
+        <div class="section-content">
+            <p><strong>Degree:</strong> {{ cv_resume.education.name }}</p>
+            <p><strong>Field of Study:</strong> {{ cv_resume.education.field_of_study }}</p>
+            <p><strong>Institute:</strong> {{ cv_resume.education.institute }}</p>
+            <p><strong>Location:</strong> {{ cv_resume.education.location }}</p>
+            <p><strong>Graduation Year:</strong> {{ cv_resume.education.graduation_year }}</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-header">Work Experience</div>
+        <div class="section-content">
+            <p><strong>Company:</strong> {{ cv_resume.work_experience.company }}</p>
+            <p><strong>Position:</strong> {{ cv_resume.work_experience.position }}</p>
+            <p><strong>Start Date:</strong> {{ cv_resume.work_experience.start_date }}</p>
+            <p><strong>End Date:</strong> {{ cv_resume.work_experience.end_date }}</p>
+            <p><strong>Responsibilities:</strong> {{ cv_resume.work_experience.responsibilities }}</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-header">Certification</div>
+        <div class="section-content">
+            <p><strong>Name:</strong> {{ cv_resume.certification.certification_name }}</p>
+            <p><strong>Issuer Name:</strong> {{ cv_resume.certification.issuer_name }}</p>
+            <p><strong>Certification Date:</strong> {{ cv_resume.certification.certification_date }}</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-header">Skills</div>
+        <div class="section-content">
+            <ul>
+                {% for skill in cv_resume.skills.all %}
+                    <li>{{ skill.name }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

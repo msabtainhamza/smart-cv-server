@@ -1,0 +1,14 @@
+pillow==10.3.0
+requests==2.31.0
+Django~=4.2.11
+djangorestframework~=3.15.1
+xhtml2pdf~=0.2.15
+bs4~=0.0.2
+beautifulsoup4~=4.12.3
+xhtml2pdf==0.2.15
+django-cors-headers==4.3.1
+dj-rest-auth==6.0.0
+drf-yasg==1.21.7
+setuptools==70.0.0
+WeasyPrint==62.1
+pandas

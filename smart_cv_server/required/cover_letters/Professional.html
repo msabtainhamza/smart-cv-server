@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Cover Letter</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            color: #333;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .container {
+            background: #fff;
+            padding: 40px;
+            margin-top: 20px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        header {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+        header h1 {
+            font-size: 28px;
+            color: #000;
+            margin-bottom: 5px;
+        }
+        header p {
+            font-size: 18px;
+            color: #555;
+        }
+        .personal-info, .job-details {
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+        }
+        .personal-info div, .job-details div {
+            margin-bottom: 10px;
+        }
+        .main-body {
+            margin-top: 20px;
+        }
+        .main-body p {
+            margin-bottom: 15px;
+        }
+        .signature {
+            text-align: right;
+            margin-top: 40px;
+        }
+        .signature p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Cover Letter</h1>
+        <p>Confidently crafted with elegance</p>
+    </header>
+
+    <div class="personal-info">
+        <div>
+            <p><strong>Recipient's Name:</strong> {{ cover_letter.name }}</p>
+            <p><strong>Email:</strong> {{ cover_letter.email }}</p>
+        </div>
+        <div>
+            <p><strong>Phone Number:</strong> {{ cover_letter.phone_number }}</p>
+            <p><strong>Address:</strong> {{ cover_letter.address }}</p>
+        </div>
+    </div>
+
+    <div class="job-details">
+        <div>
+            <p><strong>Job Title:</strong> {{ cover_letter.job_title }}</p>
+            <p><strong>Company Name:</strong> {{ cover_letter.company_name }}</p>
+        </div>
+    </div>
+
+    <div class="main-body">
+        <p>{{ cover_letter.introduction }}</p>
+        <p>{{ cover_letter.job_description }}</p>
+        <p>{{ cover_letter.experience }}</p>
+        <p>{{ cover_letter.body }}</p>
+    </div>
+
+    <div class="signature">
+        <p>Sincerely,</p>
+        <p>{{ cover_letter.name }}</p>
+    </div>
+</div>
+
+</body>
+</html>

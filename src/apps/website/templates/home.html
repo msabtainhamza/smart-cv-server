@@ -1,0 +1,150 @@
+{% extends 'base.html' %}
+
+{% block title %}Home - CV Builder{% endblock %}
+
+{% block content %}
+<div class="jumbotron">
+    <h1 class="display-4">Welcome to CV Builder!</h1>
+    <p class="lead">Start building your professional CV today.</p>
+    <hr class="my-4">
+    <p>Get started by creating your personal information, adding work experience, skills, education, certifications, etc.</p>
+    <button class="btn btn-primary btn-lg" onclick="showPopup('cv')">Test CV Resume</button>
+    <button class="btn btn-primary btn-lg" onclick="showPopup('invitation')">Test Invitation Card</button>
+    <button class="btn btn-primary btn-lg" onclick="showPopup('cover_letter')">Test Cover Letter</button>
+</div>
+
+<!-- Popup Modal -->
+<div id="popupModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closePopup()">&times;</span>
+        <h2>Select Options</h2>
+        <form id="templateForm">
+            <div class="form-group">
+                <label for="idSelect">Select ID:</label>
+                <select id="idSelect" class="form-control"></select>
+            </div>
+            <div class="form-group">
+                <label for="templateSelect">Select Template:</label>
+                <select id="templateSelect" class="form-control"></select>
+            </div>
+            <button type="button" class="btn btn-primary" onclick="submitForm()">Submit</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    const cvTemplates = [
+        'Basic', 'Professional', 'Modern', 'Elegant', 'Creative', 'Minimalist', 'Infographic', 'Academic'
+    ];
+
+    const invitationTemplates = [
+        'Classic', 'Rustic', 'Modern', 'Vintage', 'Floral', 'Minimalist', 'Elegant', 'Whimsical'
+    ];
+
+    const coverLetterTemplates = [
+        'Traditional', 'Modern', 'Creative', 'Professional', 'Minimalist', 'Elegant', 'Detailed', 'Personalized'
+    ];
+
+    const data = {
+        cv: {{ cv_resume|safe }},
+        invitation: {{ invitation|safe }},
+        cover_letter: {{ cover_letter|safe }}
+    };
+
+    function showPopup(type) {
+        const idSelect = document.getElementById('idSelect');
+        const templateSelect = document.getElementById('templateSelect');
+
+        idSelect.innerHTML = '';
+        templateSelect.innerHTML = '';
+
+        data[type].forEach(item => {
+            const option = document.createElement('option');
+            option.value = item.pk;
+            const displayText = item.fields.name || item.fields.title || item.fields.event_name || `ID: ${item.pk}`;
+            option.text = `${displayText} (ID: ${item.pk})`;
+            idSelect.appendChild(option);
+        });
+
+        let templates;
+        if (type === 'cv') {
+            templates = cvTemplates;
+        } else if (type === 'invitation') {
+            templates = invitationTemplates;
+        } else {
+            templates = coverLetterTemplates;
+        }
+
+        templates.forEach(template => {
+            const option = document.createElement('option');
+            option.value = template;
+            option.text = template;
+            templateSelect.appendChild(option);
+        });
+
+        document.getElementById('popupModal').style.display = 'block';
+        document.getElementById('templateForm').dataset.type = type;
+    }
+
+    function closePopup() {
+        document.getElementById('popupModal').style.display = 'none';
+    }
+
+    function submitForm() {
+        const type = document.getElementById('templateForm').dataset.type;
+        const id = document.getElementById('idSelect').value;
+        const template = document.getElementById('templateSelect').value;
+
+        let url = '';
+        if (type === 'cv') {
+            url = `/template/${id}/${template}`;
+        } else if (type === 'invitation') {
+            url = `/invitation_card/template/${id}/${template}`;
+        } else {
+            url = `/cover_letter/template/${id}/${template}`;
+        }
+
+        window.location.href = url;
+    }
+</script>
+
+<style>
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0,0,0);
+        background-color: rgba(0,0,0,0.4);
+        padding-top: 60px;
+    }
+
+    .modal-content {
+        background-color: #fefefe;
+        margin: 5% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        border-radius: 10px;
+    }
+
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+</style>
+
+{% endblock %}
